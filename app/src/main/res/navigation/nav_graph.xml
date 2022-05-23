@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/splashScreeFragment">
+
+    <fragment
+        android:id="@+id/splashScreeFragment"
+        android:name="com.example.movieapp.SignUpIn.SplashScreenFragment"
+        android:label="fragment_splash_scree"
+        tools:layout="@layout/fragment_splash_screen" >
+        <action
+            android:id="@+id/action_splashScreeFragment_to_loginRegistrationFragment"
+            app:destination="@id/loginRegistrationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/logInFragment"
+        android:name="com.example.movieapp.SignUpIn.LogInFragment"
+        android:label="fragment_log_in"
+        tools:layout="@layout/fragment_log_in" >
+        <action
+            android:id="@+id/action_logInFragment_to_registrationFragment"
+            app:destination="@id/registrationFragment" />
+        <action
+            android:id="@+id/action_logInFragment_to_generalFragment"
+            app:destination="@id/generalFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registrationFragment"
+        android:name="com.example.movieapp.SignUpIn.RegistrationFragment"
+        android:label="fragment_registration"
+        tools:layout="@layout/fragment_registration" >
+        <action
+            android:id="@+id/action_registrationFragment_to_logInFragment"
+            app:destination="@id/logInFragment" />
+        <action
+            android:id="@+id/action_registrationFragment_to_generalFragment"
+            app:destination="@id/generalFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginRegistrationFragment"
+        android:name="com.example.movieapp.SignUpIn.LoginRegistrationFragment"
+        android:label="fragment_login_registration"
+        tools:layout="@layout/fragment_login_registration" >
+        <action
+            android:id="@+id/action_loginRegistrationFragment_to_logInFragment"
+            app:destination="@id/logInFragment" />
+        <action
+            android:id="@+id/action_loginRegistrationFragment_to_registrationFragment"
+            app:destination="@id/registrationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/generalFragment"
+        android:name="com.example.movieapp.GeneralFragment"
+        android:label="fragment_general"
+        tools:layout="@layout/fragment_general" />
+</navigation>
