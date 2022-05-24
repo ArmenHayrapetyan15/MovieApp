@@ -34,7 +34,8 @@
             android:hint="@string/email"
             android:inputType="textEmailAddress"
             android:minHeight="48dp"
-            android:textColorHint="@color/white" />
+            android:textColorHint="@color/white"
+            android:textColor="@color/white"/>
 
         <EditText
             android:id="@+id/etSPassword"
@@ -47,7 +48,8 @@
             android:hint="@string/password"
             android:inputType="textPassword"
             android:minHeight="48dp"
-            android:textColorHint="@color/white" />
+            android:textColorHint="@color/white"
+            android:textColor="@color/white"/>
 
         <EditText
             android:id="@+id/etSConfPassword"
@@ -61,7 +63,8 @@
             android:inputType="textPassword"
             android:minHeight="48dp"
             android:textColorHint="@color/white"
-            tools:ignore="TextContrastCheck" />
+            tools:ignore="TextContrastCheck"
+            android:textColor="@color/white"/>
 
         <Button
             android:id="@+id/Registration"

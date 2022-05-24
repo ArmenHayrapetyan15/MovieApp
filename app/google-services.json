@@ -1,0 +1,76 @@
+{
+  "project_info": {
+    "project_number": "603493568793",
+    "project_id": "movieapp2-efa2b",
+    "storage_bucket": "movieapp2-efa2b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:603493568793:android:04edbbaa70a6febd4f7588",
+        "android_client_info": {
+          "package_name": "com.example.fragmentex"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "603493568793-4a3k6d5ie5i68i4utbbkuv77kgntv4qa.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB9PIFrbkVvnhvIFpAQMTnlzLZWaeCVIMU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "603493568793-4a3k6d5ie5i68i4utbbkuv77kgntv4qa.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:603493568793:android:d0cc9dcc94945a194f7588",
+        "android_client_info": {
+          "package_name": "com.example.moviesapp10"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "603493568793-bbdog5iemlq62lmdh4g4g9fqn95b79tv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.moviesapp10",
+            "certificate_hash": "b2a7988d47c2ff3ab74986cf90ba226f0ab0252e"
+          }
+        },
+        {
+          "client_id": "603493568793-4a3k6d5ie5i68i4utbbkuv77kgntv4qa.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB9PIFrbkVvnhvIFpAQMTnlzLZWaeCVIMU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "603493568793-4a3k6d5ie5i68i4utbbkuv77kgntv4qa.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
