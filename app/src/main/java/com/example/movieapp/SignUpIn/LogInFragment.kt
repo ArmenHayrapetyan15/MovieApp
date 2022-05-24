@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.movieapp.R
@@ -26,31 +27,27 @@ class LogInFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.Login.setOnClickListener {
-            findNavController().navigate(R.id.action_logInFragment_to_generalFragment)
+            login()
         }
 
         binding.tvSignUp.setOnClickListener {
             findNavController().navigate(R.id.action_logInFragment_to_registrationFragment)
         }
 
-//        auth = FirebaseAuth.getInstance()
+        auth = FirebaseAuth.getInstance()
     }
 
-//    private fun login() {
-//        val email = binding.etEmailAddress.text.toString()
-//        val pass = binding.etPassword.text.toString()
-//
-//        auth.signInWithEmailAndPassword(email, pass).addOnCompleteListener(requireActivity()) {
-//            if (it.isSuccessful) {
-//                findNavController().navigate(R.id.action_logInFragment_to_registrationFragment)
-//            } else {
-//                Toast.makeText(
-//                    context,
-//                    "You are not registered please register",
-//                    Toast.LENGTH_SHORT
-//                ).show()
-//                findNavController().navigate(R.id.action_logInFragment_to_registrationFragment)
-//            }
-//        }
-//    }
+    private fun login() {
+        val email = binding.etEmailAddress.text.toString()
+        val pass = binding.etPassword.text.toString()
+        auth.signInWithEmailAndPassword(email, pass).addOnCompleteListener {
+            if (it.isSuccessful) {
+                Toast.makeText(context, "Successfully LoggedIn", Toast.LENGTH_SHORT).show()
+                findNavController().navigate(R.id.action_logInFragment_to_generalFragment)
+            } else {
+                Toast.makeText(context, "Log In failed ", Toast.LENGTH_SHORT).show()
+                findNavController().navigate(R.id.action_logInFragment_to_registrationFragment)
+            }
+        }
+    }
 }

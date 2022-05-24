@@ -33,7 +33,8 @@
             android:hint="@string/email"
             android:inputType="textEmailAddress"
             android:minHeight="48dp"
-            android:textColorHint="@color/white" />
+            android:textColorHint="@color/white"
+            android:textColor="@color/white"/>
 
         <EditText
             android:id="@+id/etPassword"
@@ -45,6 +46,7 @@
             android:autofillHints="password"
             android:ems="10"
             android:hint="@string/password"
+            android:textColor="@color/white"
             android:inputType="textPassword"
             android:minHeight="48dp"
             android:textColorHint="@color/white" />
