@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.movieapp.R
 import com.example.movieapp.databinding.FragmentRegistrationBinding
+import com.example.movieapp.validateEmail
 import com.google.firebase.auth.FirebaseAuth
 
 
@@ -30,13 +31,16 @@ class RegistrationFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.Registration.setOnClickListener {
-            signUpUser()
+            if (validateEmail(binding.etSEmailAddress.text.toString()) == false){
+                Toast.makeText(context, "Email Entered Incorrectly", Toast.LENGTH_SHORT).show()
+            }else {
+                signUpUser()
+            }
         }
 
         binding.tvLogin.setOnClickListener {
             findNavController().navigate(R.id.action_registrationFragment_to_logInFragment)
         }
-
 
     }
 
@@ -65,12 +69,17 @@ class RegistrationFragment : Fragment() {
             Toast.makeText(context, "Email and Password can't be blank", Toast.LENGTH_SHORT).show()
             return
         }
+        
+        if (pass.length < 6 || confirmPassword.length < 6){
+            Toast.makeText(context, "The Password Must Be No Less Than 6 Letters", Toast.LENGTH_SHORT).show()
+        }
 
         if (pass != confirmPassword) {
             Toast.makeText(context, "Password and Confirm Password do not match", Toast.LENGTH_SHORT)
                 .show()
             return
         }
+
         auth.createUserWithEmailAndPassword(email, pass).addOnCompleteListener {
             if (it.isSuccessful) {
                 createNewUser()
