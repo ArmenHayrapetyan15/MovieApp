@@ -9,4 +9,7 @@
     <string name="do_not_have_an_account">Do not have an account?</string>
     <string name="confirm_password">Confirm Password</string>
     <string name="already_have_an_account">Already have an account?</string>
+    <string name="home">Home</string>
+    <string name="favorite">Favorite</string>
+    <string name="settings">Settings</string>
 </resources>
