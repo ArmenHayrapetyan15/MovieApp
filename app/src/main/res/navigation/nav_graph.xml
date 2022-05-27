@@ -54,5 +54,18 @@
         android:id="@+id/generalFragment"
         android:name="com.example.movieapp.GeneralFragment"
         android:label="fragment_general"
-        tools:layout="@layout/fragment_general" />
+        tools:layout="@layout/fragment_general" >
+        <action
+            android:id="@+id/action_generalFragment_to_moviesFragment"
+            app:destination="@id/moviesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/moviesFragment"
+        android:name="com.example.movieapp.MoviesFragment"
+        android:label="fragment_movies"
+        tools:layout="@layout/fragment_movies" >
+        <action
+            android:id="@+id/action_moviesFragment_to_generalFragment"
+            app:destination="@id/generalFragment" />
+    </fragment>
 </navigation>
