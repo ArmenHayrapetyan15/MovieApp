@@ -10,12 +10,12 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/purple_200">
+        android:background="@color/black">
 
         <ImageView
             android:id="@+id/MovieImage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="350dp"
+            android:layout_height="400dp"
             android:src="@drawable/ic_launcher_foreground"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -27,6 +27,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_favorite_movie"
+            android:layout_marginEnd="24dp"
+            android:layout_marginTop="16dp"
             app:layout_constraintEnd_toEndOf="@id/MovieImage"
             app:layout_constraintTop_toTopOf="@id/MovieImage" />
 
@@ -34,6 +36,8 @@
             android:id="@+id/OpenMovie"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="8dp"
             android:backgroundTint="@color/bottom_navigation_bar_color"
             android:text="@string/open"
             app:layout_constraintBottom_toBottomOf="@id/MovieImage"

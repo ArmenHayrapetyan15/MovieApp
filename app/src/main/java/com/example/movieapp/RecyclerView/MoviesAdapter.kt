@@ -1,16 +1,17 @@
-package com.example.movieapp
+package com.example.movieapp.RecyclerView
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.movieapp.Bottomnavigation.HomeFragment
+import com.example.movieapp.R
 import com.example.movieapp.databinding.ItemMoviesBinding
 import com.squareup.picasso.Picasso
 
 class MoviesAdapter(
     var context: HomeFragment,
-    private val movieList: MutableList<MovieModelItem>
+    private val movieList: MutableList<MovieItem>
 ) : RecyclerView.Adapter<MoviesAdapter.MovieViewHolder>() {
 
 
@@ -18,10 +19,7 @@ class MoviesAdapter(
         var isClicked = false
         var binding = ItemMoviesBinding.bind(itemView)
 
-        fun bind(movieModelItem: MovieModelItem) = with(binding) {
-            MovieName.text = movieModelItem.name
-            Picasso.get().load(movieModelItem.imageUrl).into(MovieImage)
-
+        fun bind() = with(binding) {
             FavoriteMovie.setOnClickListener {
                 if (!isClicked) {
                     isClicked = true
@@ -39,7 +37,9 @@ class MoviesAdapter(
     )
 
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
-        holder.bind(movieList[position])
+        Picasso.get().load(movieList[position].image.medium).into(holder.binding.MovieImage)
+        holder.binding.MovieName.text = movieList[position].name
+        holder.bind()
     }
 
     override fun getItemCount() = movieList.size

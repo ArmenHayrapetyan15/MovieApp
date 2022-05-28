@@ -1,14 +1,13 @@
-package com.example.movieapp.Network
+package com.example.movieapp.RecyclerView
 
-import com.example.movieapp.MovieModelItem
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 
 interface APIService {
-    @GET("most-popular?page=:page")
-    fun getMovieList(): Call<MutableList<MovieModelItem>>
+    @GET("shows")
+    fun getMovieList(): Call<MutableList<MovieItem>>
 
     object NewService {
         val movieInstance: APIService
@@ -16,9 +15,10 @@ interface APIService {
         init {
             val retrofitBulder = Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create())
-                .baseUrl("https://www.episodate.com/api/")
+                .baseUrl("https://api.tvmaze.com/")
                 .build()
-            movieInstance = retrofitBulder.create(APIService::class.java)
+                .create(APIService::class.java)
+            movieInstance = retrofitBulder
         }
     }
 }

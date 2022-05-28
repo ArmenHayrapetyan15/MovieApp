@@ -8,9 +8,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.movieapp.MovieModelItem
-import com.example.movieapp.MoviesAdapter
-import com.example.movieapp.Network.APIService
+import com.example.movieapp.RecyclerView.APIService
+import com.example.movieapp.RecyclerView.MovieItem
+import com.example.movieapp.RecyclerView.MoviesAdapter
 import com.example.movieapp.databinding.FragmentHomeBinding
 import retrofit2.Call
 import retrofit2.Callback
@@ -40,26 +40,23 @@ class HomeFragment : Fragment() {
 
     private fun getMovieData() {
         val retrofit = APIService.NewService.movieInstance.getMovieList()
-        retrofit.enqueue(object : Callback<MutableList<MovieModelItem>?> {
+        retrofit.enqueue(object : Callback<MutableList<MovieItem>> {
             @SuppressLint("NotifyDataSetChanged")
             override fun onResponse(
-                call: Call<MutableList<MovieModelItem>?>,
-                response: Response<MutableList<MovieModelItem>?>
+                call: Call<MutableList<MovieItem>?>,
+                response: Response<MutableList<MovieItem>?>
             ) {
                 val responseBody = response.body()
 
                 adapter =
-                    MoviesAdapter(this@HomeFragment, responseBody as MutableList<MovieModelItem>)
+                    MoviesAdapter(this@HomeFragment, responseBody as MutableList<MovieItem>)
                 adapter.notifyDataSetChanged()
                 binding.RecyclerView.adapter = adapter
             }
 
-            override fun onFailure(call: Call<MutableList<MovieModelItem>?>, t: Throwable) {
+            override fun onFailure(call: Call<MutableList<MovieItem>?>, t: Throwable) {
                 Log.d("MyLog", "ofFailure ${t.message}")
             }
-
-        }
-
-        )
+        })
     }
 }
