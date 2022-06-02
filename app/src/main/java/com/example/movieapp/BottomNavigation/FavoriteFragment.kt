@@ -1,5 +1,6 @@
-package com.example.movieapp.Bottomnavigation
+package com.example.movieapp.BottomNavigation
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,7 +13,7 @@ import com.example.movieapp.databinding.FragmentFavoriteBinding
 
 class FavoriteFragment : Fragment() {
     lateinit var binding: FragmentFavoriteBinding
-    lateinit var adapter: FavoriteAdapter
+    private lateinit var adapter: FavoriteAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -22,6 +23,7 @@ class FavoriteFragment : Fragment() {
         return binding.root
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -30,6 +32,5 @@ class FavoriteFragment : Fragment() {
         binding.RecyclerViewFavorite.adapter = adapter
         binding.RecyclerViewFavorite.layoutManager = LinearLayoutManager(this.context)
     }
-
 
 }

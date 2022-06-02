@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import android.widget.MediaController
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.example.movieapp.RecyclerViewHomePage.Values
+import com.example.movieapp.RecyclerViewFavorite.Values
 import com.example.movieapp.databinding.FragmentMoviesBinding
 import com.squareup.picasso.Picasso
 

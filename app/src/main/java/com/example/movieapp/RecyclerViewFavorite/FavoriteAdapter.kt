@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.movieapp.Bottomnavigation.FavoriteFragment
+import com.example.movieapp.BottomNavigation.FavoriteFragment
 import com.example.movieapp.R
 import com.example.movieapp.RecyclerViewHomePage.MovieItem
 import com.example.movieapp.databinding.ItemMoviesBinding

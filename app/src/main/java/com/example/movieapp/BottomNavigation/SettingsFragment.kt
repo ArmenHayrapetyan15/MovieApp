@@ -1,4 +1,4 @@
-package com.example.movieapp.Bottomnavigation
+package com.example.movieapp.BottomNavigation
 
 import android.os.Bundle
 import android.util.Log
@@ -14,8 +14,8 @@ import com.google.firebase.auth.FirebaseAuth
 
 class SettingsFragment : Fragment() {
     lateinit var binding : FragmentSettingsBinding
-    lateinit var auth : FirebaseAuth
-    lateinit var email : String
+    private lateinit var auth : FirebaseAuth
+    private lateinit var email : String
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

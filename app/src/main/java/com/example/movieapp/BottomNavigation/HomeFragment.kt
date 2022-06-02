@@ -1,4 +1,4 @@
-package com.example.movieapp.Bottomnavigation
+package com.example.movieapp.BottomNavigation
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -10,8 +10,8 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.movieapp.R
 import com.example.movieapp.RecyclerViewFavorite.DataList.homeMovieList
+import com.example.movieapp.RecyclerViewFavorite.Values
 import com.example.movieapp.RecyclerViewHomePage.MoviesAdapter
-import com.example.movieapp.RecyclerViewHomePage.Values
 import com.example.movieapp.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
