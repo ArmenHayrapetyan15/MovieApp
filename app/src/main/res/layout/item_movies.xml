@@ -23,7 +23,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/FavoriteMovie"
+            android:id="@+id/favoriteMovie"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_favorite_movie"
@@ -37,10 +37,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="32dp"
-            android:layout_marginBottom="8dp"
             android:backgroundTint="@color/bottom_navigation_bar_color"
             android:text="@string/open"
-            app:layout_constraintBottom_toBottomOf="@id/MovieImage"
+            app:layout_constraintTop_toBottomOf="@id/MovieImage"
             app:layout_constraintEnd_toEndOf="@id/MovieImage" />
 
         <TextView
@@ -48,12 +47,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textStyle="bold"
-            android:textSize="24sp"
-            android:hint="@string/home"
+            android:textSize="20sp"
+            android:text="@string/home"
+            android:layout_marginStart="24dp"
             app:layout_constraintStart_toStartOf="@id/MovieImage"
-            app:layout_constraintEnd_toEndOf="@id/MovieImage"
-            app:layout_constraintTop_toTopOf="@id/MovieImage"
-            app:layout_constraintBottom_toBottomOf="@id/MovieImage"/>
+            app:layout_constraintTop_toTopOf="@id/OpenMovie"
+            app:layout_constraintEnd_toStartOf="@id/OpenMovie"
+            app:layout_constraintBottom_toBottomOf="@id/OpenMovie"
+            android:textColor="@color/white"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

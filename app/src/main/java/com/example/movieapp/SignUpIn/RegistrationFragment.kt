@@ -12,10 +12,9 @@ import com.example.movieapp.databinding.FragmentRegistrationBinding
 import com.example.movieapp.validateEmail
 import com.google.firebase.auth.FirebaseAuth
 
-
 class RegistrationFragment : Fragment() {
 
-    lateinit var binding: FragmentRegistrationBinding
+    private lateinit var binding: FragmentRegistrationBinding
     private lateinit var auth: FirebaseAuth
 
     override fun onCreateView(
@@ -31,7 +30,7 @@ class RegistrationFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.Registration.setOnClickListener {
-            if (validateEmail(binding.etSEmailAddress.text.toString()) == false){
+            if (!validateEmail(binding.etSEmailAddress.text.toString())){
                 Toast.makeText(context, "Email Entered Incorrectly", Toast.LENGTH_SHORT).show()
             }else {
                 signUpUser()
@@ -64,7 +63,6 @@ class RegistrationFragment : Fragment() {
         val pass = binding.etSPassword.text.toString()
         val confirmPassword = binding.etSConfPassword.text.toString()
 
-        // check pass
         if (email.isBlank() || pass.isBlank() || confirmPassword.isBlank()) {
             Toast.makeText(context, "Email and Password can't be blank", Toast.LENGTH_SHORT).show()
             return

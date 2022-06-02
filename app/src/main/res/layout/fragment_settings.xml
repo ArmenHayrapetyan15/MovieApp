@@ -4,16 +4,33 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/background"
     tools:context=".Bottomnavigation.SettingsFragment">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/settings"
+        android:id="@+id/User_Email"
+        android:layout_width="0dp"
+        android:layout_height="72dp"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:hint="@string/settings"
+        android:background="#F8CD4A"
+        android:textColor="@color/white"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <Button
+        android:id="@+id/Sign_Out"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/sign_out"
+        android:backgroundTint="@color/bottom_navigation_bar_color"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginBottom="16dp"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

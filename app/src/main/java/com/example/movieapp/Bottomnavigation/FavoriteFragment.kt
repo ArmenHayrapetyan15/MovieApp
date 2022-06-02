@@ -5,15 +5,31 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.movieapp.R
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.movieapp.RecyclerViewFavorite.DataList
+import com.example.movieapp.RecyclerViewFavorite.FavoriteAdapter
+import com.example.movieapp.databinding.FragmentFavoriteBinding
 
 class FavoriteFragment : Fragment() {
+    lateinit var binding: FragmentFavoriteBinding
+    lateinit var adapter: FavoriteAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_favorite, container, false)
+    ): View {
+        binding = FragmentFavoriteBinding.inflate(inflater)
+        return binding.root
     }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        adapter = FavoriteAdapter(this@FavoriteFragment, DataList.favoriteList)
+        adapter.notifyDataSetChanged()
+        binding.RecyclerViewFavorite.adapter = adapter
+        binding.RecyclerViewFavorite.layoutManager = LinearLayoutManager(this.context)
+    }
+
+
 }

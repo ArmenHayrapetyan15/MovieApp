@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_splashScreeFragment_to_loginRegistrationFragment"
             app:destination="@id/loginRegistrationFragment" />
+        <action
+            android:id="@+id/action_splashScreeFragment_to_generalFragment"
+            app:destination="@id/generalFragment" />
     </fragment>
     <fragment
         android:id="@+id/logInFragment"
@@ -58,6 +61,9 @@
         <action
             android:id="@+id/action_generalFragment_to_moviesFragment"
             app:destination="@id/moviesFragment" />
+        <action
+            android:id="@+id/action_generalFragment_to_loginRegistrationFragment"
+            app:destination="@id/loginRegistrationFragment" />
     </fragment>
     <fragment
         android:id="@+id/moviesFragment"
@@ -67,5 +73,9 @@
         <action
             android:id="@+id/action_moviesFragment_to_generalFragment"
             app:destination="@id/generalFragment" />
+        <argument
+            android:name="movieName"
+            app:argType="string"
+            android:defaultValue="MovieName" />
     </fragment>
 </navigation>

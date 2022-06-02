@@ -2,61 +2,45 @@ package com.example.movieapp.Bottomnavigation
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.movieapp.RecyclerView.APIService
-import com.example.movieapp.RecyclerView.MovieItem
-import com.example.movieapp.RecyclerView.MoviesAdapter
+import com.example.movieapp.R
+import com.example.movieapp.RecyclerViewFavorite.DataList.homeMovieList
+import com.example.movieapp.RecyclerViewHomePage.MoviesAdapter
+import com.example.movieapp.RecyclerViewHomePage.Values
 import com.example.movieapp.databinding.FragmentHomeBinding
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 class HomeFragment : Fragment() {
 
-    lateinit var binding: FragmentHomeBinding
-    lateinit var adapter: MoviesAdapter
-
+    private lateinit var binding: FragmentHomeBinding
+    private lateinit var adapter: MoviesAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View {
         binding = FragmentHomeBinding.inflate(inflater)
         return binding.root
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        adapter = MoviesAdapter(this@HomeFragment, homeMovieList)
+        adapter.notifyDataSetChanged()
+        binding.RecyclerView.adapter = adapter
         binding.RecyclerView.layoutManager = LinearLayoutManager(this.context)
-        getMovieData()
 
-    }
-
-    private fun getMovieData() {
-        val retrofit = APIService.NewService.movieInstance.getMovieList()
-        retrofit.enqueue(object : Callback<MutableList<MovieItem>> {
-            @SuppressLint("NotifyDataSetChanged")
-            override fun onResponse(
-                call: Call<MutableList<MovieItem>?>,
-                response: Response<MutableList<MovieItem>?>
-            ) {
-                val responseBody = response.body()
-
-                adapter =
-                    MoviesAdapter(this@HomeFragment, responseBody as MutableList<MovieItem>)
-                adapter.notifyDataSetChanged()
-                binding.RecyclerView.adapter = adapter
-            }
-
-            override fun onFailure(call: Call<MutableList<MovieItem>?>, t: Throwable) {
-                Log.d("MyLog", "ofFailure ${t.message}")
-            }
-        })
+        adapter.onItemClick = {
+            Values.movieImage = it.image
+            Values.movieName = it.name
+            Values.movieTrailer = it.trailerLink
+            findNavController().navigate(R.id.action_generalFragment_to_moviesFragment)
+        }
     }
 }
