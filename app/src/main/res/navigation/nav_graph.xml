@@ -12,10 +12,14 @@
         tools:layout="@layout/fragment_splash_screen" >
         <action
             android:id="@+id/action_splashScreeFragment_to_loginRegistrationFragment"
-            app:destination="@id/loginRegistrationFragment" />
+            app:destination="@id/loginRegistrationFragment"
+            app:popUpTo="@id/splashScreeFragment"
+            app:popUpToInclusive="true"/>
         <action
             android:id="@+id/action_splashScreeFragment_to_generalFragment"
-            app:destination="@id/generalFragment" />
+            app:destination="@id/generalFragment"
+            app:popUpTo="@id/splashScreeFragment"
+            app:popUpToInclusive="true"/>
     </fragment>
     <fragment
         android:id="@+id/logInFragment"
@@ -24,10 +28,12 @@
         tools:layout="@layout/fragment_log_in" >
         <action
             android:id="@+id/action_logInFragment_to_registrationFragment"
-            app:destination="@id/registrationFragment" />
+            app:destination="@id/registrationFragment"/>
         <action
             android:id="@+id/action_logInFragment_to_generalFragment"
-            app:destination="@id/generalFragment" />
+            app:destination="@id/generalFragment"
+            app:popUpTo="@id/logInFragment"
+            app:popUpToInclusive="true"/>
     </fragment>
     <fragment
         android:id="@+id/registrationFragment"
@@ -36,10 +42,12 @@
         tools:layout="@layout/fragment_registration" >
         <action
             android:id="@+id/action_registrationFragment_to_logInFragment"
-            app:destination="@id/logInFragment" />
+            app:destination="@id/logInFragment"/>
         <action
             android:id="@+id/action_registrationFragment_to_generalFragment"
-            app:destination="@id/generalFragment" />
+            app:destination="@id/generalFragment"
+            app:popUpTo="@id/registrationFragment"
+            app:popUpToInclusive="true"/>
     </fragment>
     <fragment
         android:id="@+id/loginRegistrationFragment"
@@ -48,10 +56,14 @@
         tools:layout="@layout/fragment_login_registration" >
         <action
             android:id="@+id/action_loginRegistrationFragment_to_logInFragment"
-            app:destination="@id/logInFragment" />
+            app:destination="@id/logInFragment"
+            app:popUpTo="@id/loginRegistrationFragment"
+            app:popUpToInclusive="true"/>
         <action
             android:id="@+id/action_loginRegistrationFragment_to_registrationFragment"
-            app:destination="@id/registrationFragment" />
+            app:destination="@id/registrationFragment"
+            app:popUpTo="@id/loginRegistrationFragment"
+            app:popUpToInclusive="true"/>
     </fragment>
     <fragment
         android:id="@+id/generalFragment"
@@ -60,10 +72,11 @@
         tools:layout="@layout/fragment_general" >
         <action
             android:id="@+id/action_generalFragment_to_moviesFragment"
-            app:destination="@id/moviesFragment" />
+            app:destination="@id/moviesFragment"/>
         <action
             android:id="@+id/action_generalFragment_to_loginRegistrationFragment"
-            app:destination="@id/loginRegistrationFragment" />
+            app:destination="@id/loginRegistrationFragment"
+            app:popUpTo="@id/generalFragment"/>
     </fragment>
     <fragment
         android:id="@+id/moviesFragment"

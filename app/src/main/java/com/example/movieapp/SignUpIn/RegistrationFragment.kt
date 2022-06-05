@@ -67,7 +67,7 @@ class RegistrationFragment : Fragment() {
             Toast.makeText(context, "Email and Password can't be blank", Toast.LENGTH_SHORT).show()
             return
         }
-        
+
         if (pass.length < 6 || confirmPassword.length < 6){
             Toast.makeText(context, "The Password Must Be No Less Than 6 Letters", Toast.LENGTH_SHORT).show()
         }

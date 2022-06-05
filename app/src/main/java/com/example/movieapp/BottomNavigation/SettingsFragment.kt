@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.movieapp.R
+import com.example.movieapp.RecyclerViewFavorite.DataList
 import com.example.movieapp.SignUpIn.FirebaseUtils
 import com.example.movieapp.databinding.FragmentSettingsBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -30,6 +31,7 @@ class SettingsFragment : Fragment() {
         binding.SignOut.setOnClickListener {
             FirebaseAuth.getInstance().signOut()
             findNavController().navigate(R.id.action_generalFragment_to_loginRegistrationFragment)
+            DataList.favoriteList = mutableListOf()
         }
 
         auth = FirebaseAuth.getInstance()

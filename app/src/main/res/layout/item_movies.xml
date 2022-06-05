@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardCornerRadius="32dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:layout_marginHorizontal="24dp"
     android:layout_marginVertical="8dp"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    app:cardCornerRadius="32dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -26,9 +26,9 @@
             android:id="@+id/favoriteMovie"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_favorite_movie"
-            android:layout_marginEnd="24dp"
             android:layout_marginTop="16dp"
+            android:layout_marginEnd="24dp"
+            android:src="@drawable/ic_favorite_movie"
             app:layout_constraintEnd_toEndOf="@id/MovieImage"
             app:layout_constraintTop_toTopOf="@id/MovieImage" />
 
@@ -39,22 +39,30 @@
             android:layout_marginEnd="32dp"
             android:backgroundTint="@color/bottom_navigation_bar_color"
             android:text="@string/open"
-            app:layout_constraintTop_toBottomOf="@id/MovieImage"
-            app:layout_constraintEnd_toEndOf="@id/MovieImage" />
+            app:layout_constraintEnd_toEndOf="@id/MovieImage"
+            app:layout_constraintTop_toBottomOf="@id/MovieImage" />
 
         <TextView
             android:id="@+id/MovieName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:textSize="20sp"
-            android:text="@string/home"
             android:layout_marginStart="24dp"
-            app:layout_constraintStart_toStartOf="@id/MovieImage"
-            app:layout_constraintTop_toTopOf="@id/OpenMovie"
-            app:layout_constraintEnd_toStartOf="@id/OpenMovie"
+            android:text="@string/home"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@id/OpenMovie"
-            android:textColor="@color/white"/>
+            app:layout_constraintEnd_toStartOf="@id/OpenMovie"
+            app:layout_constraintStart_toStartOf="@id/MovieImage"
+            app:layout_constraintTop_toTopOf="@id/OpenMovie" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
