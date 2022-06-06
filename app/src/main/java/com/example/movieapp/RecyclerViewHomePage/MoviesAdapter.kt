@@ -13,11 +13,12 @@ import com.squareup.picasso.Picasso
 
 class MoviesAdapter(
     var context: HomeFragment,
-    private val movieList: MutableList<MovieItem>
+    private val movieList: MutableList<MovieItem>,
 ) : RecyclerView.Adapter<MoviesAdapter.MovieViewHolder>() {
-    var onItemClick:((MovieItem) -> Unit)? = null
-    private lateinit var auth : FirebaseAuth
-    var email : String = "Email"
+    var onItemClick: ((MovieItem) -> Unit)? = null
+    private lateinit var auth: FirebaseAuth
+    var email: String = "Email"
+
     inner class MovieViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var binding = ItemMoviesBinding.bind(itemView)
 

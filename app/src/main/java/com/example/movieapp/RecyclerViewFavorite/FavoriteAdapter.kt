@@ -51,7 +51,7 @@ class FavoriteAdapter(
                     favoriteMovieList[position].isFavorite = false
                     holder.binding.favoriteMovie.setImageResource(R.drawable.ic_favorite_movie)
                     for (it in DataList.homeMovieList) {
-                        for (it1 in favoriteMovieList){
+                        for (it1 in favoriteMovieList) {
                             if (it.name == it1.name) {
                                 it.isFavorite = false
                                 DataList.favoriteList.remove(favoriteMovieList[position])

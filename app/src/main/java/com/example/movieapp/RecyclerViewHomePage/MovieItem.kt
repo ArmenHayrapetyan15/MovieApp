@@ -8,7 +8,7 @@ data class MovieItem(
     val image: String,
     val name: String,
     var isFavorite: Boolean = false,
-    val trailerLink : String
+    val trailerLink: String,
 ) : Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readInt(),

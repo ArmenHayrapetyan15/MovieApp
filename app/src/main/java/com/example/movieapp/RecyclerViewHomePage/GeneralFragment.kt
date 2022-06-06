@@ -1,4 +1,4 @@
-package com.example.movieapp
+package com.example.movieapp.RecyclerViewHomePage
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import com.example.movieapp.BottomNavigation.FavoriteFragment
 import com.example.movieapp.BottomNavigation.HomeFragment
 import com.example.movieapp.BottomNavigation.SettingsFragment
+import com.example.movieapp.R
 import com.example.movieapp.databinding.FragmentGeneralBinding
 
 class GeneralFragment : Fragment() {
@@ -16,7 +17,7 @@ class GeneralFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View {
         binding = FragmentGeneralBinding.inflate(inflater)
         return binding.root

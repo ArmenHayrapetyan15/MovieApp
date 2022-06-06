@@ -14,13 +14,13 @@ import com.example.movieapp.databinding.FragmentSettingsBinding
 import com.google.firebase.auth.FirebaseAuth
 
 class SettingsFragment : Fragment() {
-    lateinit var binding : FragmentSettingsBinding
-    private lateinit var auth : FirebaseAuth
-    private lateinit var email : String
+    lateinit var binding: FragmentSettingsBinding
+    private lateinit var auth: FirebaseAuth
+    private lateinit var email: String
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View {
         binding = FragmentSettingsBinding.inflate(inflater)
         return binding.root

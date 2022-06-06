@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.movieapp.R
+import com.example.movieapp.RecyclerViewHomePage.GeneralFragment
 import com.example.movieapp.databinding.FragmentRegistrationBinding
 import com.example.movieapp.validateEmail
 import com.google.firebase.auth.FirebaseAuth
@@ -19,7 +20,7 @@ class RegistrationFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View {
         auth = FirebaseAuth.getInstance()
         binding = FragmentRegistrationBinding.inflate(inflater)
@@ -30,10 +31,13 @@ class RegistrationFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.Registration.setOnClickListener {
-            if (!validateEmail(binding.etSEmailAddress.text.toString())){
+            if (!validateEmail(binding.etSEmailAddress.text.toString())) {
                 Toast.makeText(context, "Email Entered Incorrectly", Toast.LENGTH_SHORT).show()
-            }else {
+            } else {
                 signUpUser()
+                fragmentManager?.beginTransaction()?.apply {
+                    replace(R.id.fragmentContainerView, GeneralFragment()).commit()
+                }
             }
         }
 
@@ -68,12 +72,16 @@ class RegistrationFragment : Fragment() {
             return
         }
 
-        if (pass.length < 6 || confirmPassword.length < 6){
-            Toast.makeText(context, "The Password Must Be No Less Than 6 Letters", Toast.LENGTH_SHORT).show()
+        if (pass.length < 6 || confirmPassword.length < 6) {
+            Toast.makeText(context,
+                "The Password Must Be No Less Than 6 Letters",
+                Toast.LENGTH_SHORT).show()
         }
 
         if (pass != confirmPassword) {
-            Toast.makeText(context, "Password and Confirm Password do not match", Toast.LENGTH_SHORT)
+            Toast.makeText(context,
+                "Password and Confirm Password do not match",
+                Toast.LENGTH_SHORT)
                 .show()
             return
         }
@@ -82,7 +90,6 @@ class RegistrationFragment : Fragment() {
             if (it.isSuccessful) {
                 createNewUser()
                 Toast.makeText(context, "Successfully Singed Up", Toast.LENGTH_SHORT).show()
-                findNavController().navigate(R.id.action_registrationFragment_to_generalFragment)
             } else {
                 Toast.makeText(context, "Singed Up Failed!", Toast.LENGTH_SHORT).show()
             }

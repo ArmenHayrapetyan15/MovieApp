@@ -1,4 +1,4 @@
-package com.example.movieapp
+package com.example.movieapp.RecyclerViewHomePage
 
 import android.net.Uri
 import android.os.Bundle
@@ -8,17 +8,18 @@ import android.view.ViewGroup
 import android.widget.MediaController
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.example.movieapp.R
 import com.example.movieapp.RecyclerViewFavorite.Values
 import com.example.movieapp.databinding.FragmentMoviesBinding
 import com.squareup.picasso.Picasso
 
 class MoviesFragment : Fragment() {
 
-    lateinit var binding : FragmentMoviesBinding
+    lateinit var binding: FragmentMoviesBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View {
         binding = FragmentMoviesBinding.inflate(inflater)
         return binding.root

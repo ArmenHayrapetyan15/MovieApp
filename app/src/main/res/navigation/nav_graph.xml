@@ -67,7 +67,7 @@
     </fragment>
     <fragment
         android:id="@+id/generalFragment"
-        android:name="com.example.movieapp.GeneralFragment"
+        android:name="com.example.movieapp.RecyclerViewHomePage.GeneralFragment"
         android:label="fragment_general"
         tools:layout="@layout/fragment_general" >
         <action
@@ -80,7 +80,7 @@
     </fragment>
     <fragment
         android:id="@+id/moviesFragment"
-        android:name="com.example.movieapp.MoviesFragment"
+        android:name="com.example.movieapp.RecyclerViewHomePage.MoviesFragment"
         android:label="fragment_movies"
         tools:layout="@layout/fragment_movies" >
         <action
