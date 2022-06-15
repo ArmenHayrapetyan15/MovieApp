@@ -1,20 +1,18 @@
-package com.example.movieapp.RecyclerViewHomePage
+package com.example.movieapp.recycler_home_page
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.movieapp.BottomNavigation.HomeFragment
 import com.example.movieapp.R
-import com.example.movieapp.RecyclerViewFavorite.DataList
+import com.example.movieapp.db.DataList
 import com.example.movieapp.databinding.ItemMoviesBinding
 import com.squareup.picasso.Picasso
 
-class MoviesAdapter(
-    var context: HomeFragment,
-    private val movieList: MutableList<MovieItem>,
-) : RecyclerView.Adapter<MoviesAdapter.MovieViewHolder>() {
+class MoviesAdapter : RecyclerView.Adapter<MoviesAdapter.MovieViewHolder>() {
+
     var onItemClick: ((MovieItem) -> Unit)? = null
+    private val movieList: MutableList<MovieItem> = ArrayList()
 
     inner class MovieViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var binding = ItemMoviesBinding.bind(itemView)
@@ -33,35 +31,30 @@ class MoviesAdapter(
     )
 
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
+        val movieItem = movieList[position]
+        holder.bind(movieItem)
 
-        holder.bind(movieList[position])
-        Picasso.get().load(movieList[position].image).into(holder.binding.MovieImage)
-        holder.binding.MovieName.text = movieList[position].name
+        Picasso.get().load(movieItem.image).into(holder.binding.movieImage)
+        holder.binding.movieNameTv.text = movieItem.name
 
-        holder.binding.OpenMovie.setOnClickListener {
+        holder.binding.openMovieDetailsBtn.setOnClickListener {
             onItemClick?.invoke(movieList[position])
         }
 
         holder.binding.favoriteMovie.setOnClickListener {
-            if (!movieList[position].isFavorite) {
-                movieList[position].isFavorite = true
+            if (!movieItem.isFavorite) {
+                movieItem.isFavorite = true
                 holder.binding.favoriteMovie.setImageResource(R.drawable.ic_red_favorite_movie)
-                DataList.favoriteList.add(
-                    MovieItem(
-                        movieList[position].id,
-                        movieList[position].image,
-                        movieList[position].name,
-                        movieList[position].isFavorite,
-                        movieList[position].trailerLink
-                    )
-                )
+                DataList.favoriteList.add(movieItem)
             }
         }
     }
 
     override fun getItemCount() = movieList.size
 
-    fun updateMoviesList(list : MutableList<MovieItem>){
-
+    fun updateItems(list: MutableList<MovieItem>) {
+        movieList.clear()
+        movieList.addAll(list)
+        notifyDataSetChanged()
     }
 }

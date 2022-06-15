@@ -1,4 +1,4 @@
-package com.example.movieapp.BottomNavigation
+package com.example.movieapp.bottom_navigation
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -7,8 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.movieapp.RecyclerViewFavorite.DataList
-import com.example.movieapp.RecyclerViewFavorite.FavoriteAdapter
+import com.example.movieapp.db.DataList
+import com.example.movieapp.favorite.FavoriteAdapter
 import com.example.movieapp.databinding.FragmentFavoriteBinding
 
 class FavoriteFragment : Fragment() {

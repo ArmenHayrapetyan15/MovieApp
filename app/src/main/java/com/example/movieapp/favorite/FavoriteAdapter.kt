@@ -1,4 +1,4 @@
-package com.example.movieapp.RecyclerViewFavorite
+package com.example.movieapp.favorite
 
 import android.annotation.SuppressLint
 import android.content.ContentValues.TAG
@@ -7,10 +7,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.movieapp.BottomNavigation.FavoriteFragment
+import com.example.movieapp.bottom_navigation.FavoriteFragment
 import com.example.movieapp.R
-import com.example.movieapp.RecyclerViewHomePage.MovieItem
+import com.example.movieapp.recycler_home_page.MovieItem
 import com.example.movieapp.databinding.ItemMoviesBinding
+import com.example.movieapp.db.DataList
 import com.squareup.picasso.Picasso
 
 class FavoriteAdapter(
@@ -37,20 +38,20 @@ class FavoriteAdapter(
     @SuppressLint("NotifyDataSetChanged")
     override fun onBindViewHolder(holder: FavoriteMovieHolder, position: Int) {
 
-        holder.binding.OpenMovie.setOnClickListener {
+        holder.binding.openMovieDetailsBtn.setOnClickListener {
             onItemClick?.invoke(favoriteMovieList[position])
         }
 
         holder.bind()
-        Picasso.get().load(favoriteMovieList[position].image).into(holder.binding.MovieImage)
-        holder.binding.MovieName.text = favoriteMovieList[position].name
+        Picasso.get().load(favoriteMovieList[position].image).into(holder.binding.movieImage)
+        holder.binding.movieNameTv.text = favoriteMovieList[position].name
 
         holder.binding.favoriteMovie.setOnClickListener {
             try {
                 if (favoriteMovieList[position].isFavorite) {
                     favoriteMovieList[position].isFavorite = false
                     holder.binding.favoriteMovie.setImageResource(R.drawable.ic_favorite_movie)
-                    for (it in DataList.homeMovieList) {
+                    for (it in DataList.getData()) {
                         for (it1 in favoriteMovieList) {
                             if (it.name == it1.name) {
                                 it.isFavorite = false

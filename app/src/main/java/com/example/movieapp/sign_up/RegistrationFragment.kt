@@ -1,4 +1,4 @@
-package com.example.movieapp.SignUpIn
+package com.example.movieapp.sign_up
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,7 +8,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.movieapp.R
-import com.example.movieapp.RecyclerViewHomePage.GeneralFragment
+import com.example.movieapp.recycler_home_page.GeneralFragment
 import com.example.movieapp.databinding.FragmentRegistrationBinding
 import com.example.movieapp.validateEmail
 import com.google.firebase.auth.FirebaseAuth
@@ -22,22 +22,18 @@ class RegistrationFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View {
-        auth = FirebaseAuth.getInstance()
         binding = FragmentRegistrationBinding.inflate(inflater)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        auth = FirebaseAuth.getInstance()
         binding.Registration.setOnClickListener {
             if (!validateEmail(binding.etSEmailAddress.text.toString())) {
                 Toast.makeText(context, "Email Entered Incorrectly", Toast.LENGTH_SHORT).show()
             } else {
                 signUpUser()
-                fragmentManager?.beginTransaction()?.apply {
-                    replace(R.id.fragmentContainerView, GeneralFragment()).commit()
-                }
             }
         }
 
@@ -56,6 +52,7 @@ class RegistrationFragment : Fragment() {
             .set(hashMap)
             .addOnSuccessListener {
                 Toast.makeText(context, "Users are create", Toast.LENGTH_SHORT).show()
+                findNavController().navigate(R.id.action_registrationFragment_to_generalFragment)
             }
             .addOnFailureListener {
                 Toast.makeText(context, "Error adding document $it", Toast.LENGTH_SHORT).show()
@@ -89,7 +86,6 @@ class RegistrationFragment : Fragment() {
         auth.createUserWithEmailAndPassword(email, pass).addOnCompleteListener {
             if (it.isSuccessful) {
                 createNewUser()
-                Toast.makeText(context, "Successfully Singed Up", Toast.LENGTH_SHORT).show()
             } else {
                 Toast.makeText(context, "Singed Up Failed!", Toast.LENGTH_SHORT).show()
             }

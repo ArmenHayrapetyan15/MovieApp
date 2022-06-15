@@ -1,4 +1,4 @@
-package com.example.movieapp.SignUpIn
+package com.example.movieapp.sign_up
 
 import android.os.Bundle
 import android.view.LayoutInflater

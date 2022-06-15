@@ -1,4 +1,4 @@
-package com.example.movieapp.RecyclerViewFavorite
+package com.example.movieapp.favorite
 
 object Values {
     var movieImage = ""

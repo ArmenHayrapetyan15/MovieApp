@@ -1,4 +1,4 @@
-package com.example.movieapp.SignUpIn
+package com.example.movieapp.sign_up
 
 import com.google.firebase.firestore.FirebaseFirestore
 

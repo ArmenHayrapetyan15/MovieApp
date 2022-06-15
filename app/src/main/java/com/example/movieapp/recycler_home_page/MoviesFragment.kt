@@ -1,4 +1,4 @@
-package com.example.movieapp.RecyclerViewHomePage
+package com.example.movieapp.recycler_home_page
 
 import android.net.Uri
 import android.os.Bundle
@@ -9,7 +9,7 @@ import android.widget.MediaController
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.movieapp.R
-import com.example.movieapp.RecyclerViewFavorite.Values
+import com.example.movieapp.favorite.Values
 import com.example.movieapp.databinding.FragmentMoviesBinding
 import com.squareup.picasso.Picasso
 

@@ -4,6 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/logobackground"
-    tools:context=".SignUpIn.SplashScreenFragment">
+    tools:context=".sign_up.SplashScreenFragment">
 
 </androidx.constraintlayout.widget.ConstraintLayout>

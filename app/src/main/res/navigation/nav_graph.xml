@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/splashScreeFragment"
-        android:name="com.example.movieapp.SignUpIn.SplashScreenFragment"
+        android:name="com.example.movieapp.sign_up.SplashScreenFragment"
         android:label="fragment_splash_scree"
         tools:layout="@layout/fragment_splash_screen" >
         <action
@@ -23,7 +23,7 @@
     </fragment>
     <fragment
         android:id="@+id/logInFragment"
-        android:name="com.example.movieapp.SignUpIn.LogInFragment"
+        android:name="com.example.movieapp.sign_up.LogInFragment"
         android:label="fragment_log_in"
         tools:layout="@layout/fragment_log_in" >
         <action
@@ -37,7 +37,7 @@
     </fragment>
     <fragment
         android:id="@+id/registrationFragment"
-        android:name="com.example.movieapp.SignUpIn.RegistrationFragment"
+        android:name="com.example.movieapp.sign_up.RegistrationFragment"
         android:label="fragment_registration"
         tools:layout="@layout/fragment_registration" >
         <action
@@ -51,7 +51,7 @@
     </fragment>
     <fragment
         android:id="@+id/loginRegistrationFragment"
-        android:name="com.example.movieapp.SignUpIn.LoginRegistrationFragment"
+        android:name="com.example.movieapp.sign_up.LoginRegistrationFragment"
         android:label="fragment_login_registration"
         tools:layout="@layout/fragment_login_registration" >
         <action
@@ -67,7 +67,7 @@
     </fragment>
     <fragment
         android:id="@+id/generalFragment"
-        android:name="com.example.movieapp.RecyclerViewHomePage.GeneralFragment"
+        android:name="com.example.movieapp.recycler_home_page.GeneralFragment"
         android:label="fragment_general"
         tools:layout="@layout/fragment_general" >
         <action
@@ -80,7 +80,7 @@
     </fragment>
     <fragment
         android:id="@+id/moviesFragment"
-        android:name="com.example.movieapp.RecyclerViewHomePage.MoviesFragment"
+        android:name="com.example.movieapp.recycler_home_page.MoviesFragment"
         android:label="fragment_movies"
         tools:layout="@layout/fragment_movies" >
         <action

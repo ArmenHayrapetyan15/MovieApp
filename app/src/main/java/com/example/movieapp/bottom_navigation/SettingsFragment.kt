@@ -1,4 +1,4 @@
-package com.example.movieapp.BottomNavigation
+package com.example.movieapp.bottom_navigation
 
 import android.os.Bundle
 import android.util.Log
@@ -8,8 +8,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.movieapp.R
-import com.example.movieapp.RecyclerViewFavorite.DataList
-import com.example.movieapp.SignUpIn.FirebaseUtils
+import com.example.movieapp.db.DataList
+import com.example.movieapp.sign_up.FirebaseUtils
 import com.example.movieapp.databinding.FragmentSettingsBinding
 import com.google.firebase.auth.FirebaseAuth
 

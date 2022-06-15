@@ -1,13 +1,13 @@
-package com.example.movieapp.RecyclerViewHomePage
+package com.example.movieapp.recycler_home_page
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.movieapp.BottomNavigation.FavoriteFragment
-import com.example.movieapp.BottomNavigation.HomeFragment
-import com.example.movieapp.BottomNavigation.SettingsFragment
+import com.example.movieapp.bottom_navigation.FavoriteFragment
+import com.example.movieapp.bottom_navigation.HomeFragment
+import com.example.movieapp.bottom_navigation.SettingsFragment
 import com.example.movieapp.R
 import com.example.movieapp.databinding.FragmentGeneralBinding
 

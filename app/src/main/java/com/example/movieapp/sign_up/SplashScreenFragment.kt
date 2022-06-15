@@ -1,4 +1,4 @@
-package com.example.movieapp.SignUpIn
+package com.example.movieapp.sign_up
 
 import android.annotation.SuppressLint
 import android.os.Bundle
