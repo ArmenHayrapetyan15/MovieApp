@@ -8,7 +8,6 @@ import com.example.movieapp.BottomNavigation.HomeFragment
 import com.example.movieapp.R
 import com.example.movieapp.RecyclerViewFavorite.DataList
 import com.example.movieapp.databinding.ItemMoviesBinding
-import com.google.firebase.auth.FirebaseAuth
 import com.squareup.picasso.Picasso
 
 class MoviesAdapter(
@@ -16,8 +15,6 @@ class MoviesAdapter(
     private val movieList: MutableList<MovieItem>,
 ) : RecyclerView.Adapter<MoviesAdapter.MovieViewHolder>() {
     var onItemClick: ((MovieItem) -> Unit)? = null
-    private lateinit var auth: FirebaseAuth
-    var email: String = "Email"
 
     inner class MovieViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var binding = ItemMoviesBinding.bind(itemView)
@@ -63,4 +60,8 @@ class MoviesAdapter(
     }
 
     override fun getItemCount() = movieList.size
+
+    fun updateMoviesList(list : MutableList<MovieItem>){
+
+    }
 }

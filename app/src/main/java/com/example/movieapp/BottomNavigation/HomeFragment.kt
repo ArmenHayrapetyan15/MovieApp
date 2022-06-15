@@ -28,6 +28,7 @@ class HomeFragment : Fragment() {
 
     private lateinit var binding: FragmentHomeBinding
     private lateinit var adapter: MoviesAdapter
+    private lateinit var movieList: MutableList<MovieItem>
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -37,14 +38,13 @@ class HomeFragment : Fragment() {
         return binding.root
     }
 
-    @SuppressLint("NotifyDataSetChanged")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         CoroutineScope(Dispatchers.Main).launch {
-            if (!DataList.bool) {
+            if (!DataList.isFull) {
                 binding.progressBar.visibility = View.VISIBLE
-                DataList.bool = true
+                DataList.isFull = true
                 val db = Firebase.firestore
                 Firebase.auth.currentUser?.let {
                     db.collection("Movies")
@@ -66,20 +66,14 @@ class HomeFragment : Fragment() {
                         .addOnFailureListener { exception ->
                             Log.w("TAG", "Error getting documents.", exception)
                         }
-                    adapter = MoviesAdapter(this@HomeFragment, homeMovieList)
-                    adapter.notifyDataSetChanged()
-                    binding.RecyclerView.adapter = adapter
-                    binding.RecyclerView.layoutManager = LinearLayoutManager(context)
+                    initAdapter()
                     delay(3000)
                     binding.progressBar.visibility = View.GONE
 
                 }
             } else {
                 binding.progressBar.visibility = View.GONE
-                adapter = MoviesAdapter(this@HomeFragment, homeMovieList)
-                adapter.notifyDataSetChanged()
-                binding.RecyclerView.adapter = adapter
-                binding.RecyclerView.layoutManager = LinearLayoutManager(context)
+                initAdapter()
                 delay(3000)
                 binding.progressBar.visibility = View.GONE
             }
@@ -91,5 +85,13 @@ class HomeFragment : Fragment() {
                 findNavController().navigate(R.id.action_generalFragment_to_moviesFragment)
             }
         }
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    fun initAdapter(){
+        adapter = MoviesAdapter(this@HomeFragment, movieList)
+        adapter.notifyDataSetChanged()
+        binding.rvMovies.adapter = adapter
+        binding.rvMovies.layoutManager = LinearLayoutManager(context)
     }
 }
